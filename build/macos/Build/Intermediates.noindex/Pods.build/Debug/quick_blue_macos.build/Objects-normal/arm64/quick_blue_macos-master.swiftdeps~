@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "4b6c4f88fe66177ad3342570068638615da463b711b289a97a3ac72eccabeaf5"
+build_start_time: [1687181574, 760376000]
+build_end_time: [1687181574, 806838000]
+inputs:
+  "/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue_macos-0.3.1+2/macos/Classes/QuickBlueMacosPlugin.swift": !private [1687172203, 439635707]

@@ -1,0 +1,33 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.boskokg.flutter_blue_plus" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="19"
+6-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="19" />
+7-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml
+8
+9    <!--
+10         New Bluetooth permissions in Android 12
+11           https://developer.android.com/about/versions/12/features/bluetooth-permissions
+12    -->
+13    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+13-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:7:5-73
+13-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:7:22-70
+14    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+14-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:8:5-76
+14-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:8:22-73
+15
+16    <!-- Request legacy Bluetooth permissions on older devices. -->
+17    <uses-permission android:name="android.permission.BLUETOOTH" />
+17-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:11:5-68
+17-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:11:22-65
+18    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+18-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:12:5-74
+18-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:12:22-71
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:13:5-79
+19-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/flutter_blue_plus-1.5.2/android/src/main/AndroidManifest.xml:13:22-76
+20
+21</manifest>

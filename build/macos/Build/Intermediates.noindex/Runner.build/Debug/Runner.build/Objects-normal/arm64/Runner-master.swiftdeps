@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
+options: "0df1aa3062c33b0b9107a67402beb25d1300c40ac52d9b41d36b990315dd057d"
+build_start_time: [1687412358, 287284000]
+build_end_time: [1687412363, 818753000]
+inputs:
+  "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1687412340, 54353292]
+  "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/macos/Runner/AppDelegate.swift": [1687181293, 619350711]
+  "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/macos/Runner/MainFlutterWindow.swift": [1687181293, 645723459]

@@ -1,0 +1,50 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64-macos ]
+flags:           [ not_app_extension_safe ]
+install-name:    '@rpath/quick_blue_macos.framework/Versions/A/quick_blue_macos'
+swift-abi-version: 7
+exports:
+  - targets:         [ arm64-macos ]
+    symbols:         [ '_$s16quick_blue_macos10GSS_SUFFIXSSvau', '_$s16quick_blue_macos10GSS_SUFFIXSSvp', 
+                       '_$s16quick_blue_macos18GATT_HEADER_LENGTHSivau', '_$s16quick_blue_macos18GATT_HEADER_LENGTHSivp', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC10peripheral_16didWriteValueFor5errorySo12CBPeripheralC_So16CBCharacteristicCs5Error_pSgtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC10peripheral_17didUpdateValueFor5errorySo12CBPeripheralC_So16CBCharacteristicCs5Error_pSgtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC10peripheral_19didDiscoverServicesySo12CBPeripheralC_s5Error_pSgtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC10peripheral_29didDiscoverCharacteristicsFor5errorySo12CBPeripheralC_So9CBServiceCs5Error_pSgtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14centralManager_10didConnectySo09CBCentralI0C_So12CBPeripheralCtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14centralManager_11didDiscover17advertisementData4rssiySo09CBCentralI0C_So12CBPeripheralCSDySSypGSo8NSNumberCtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14centralManager_23didDisconnectPeripheral5errorySo09CBCentralI0C_So12CBPeripheralCs5Error_pSgtF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14scanResultSink33_D56154314040CDDD71624A65CA7D2689LLyypSgcSgvM', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14scanResultSink33_D56154314040CDDD71624A65CA7D2689LLyypSgcSgvg', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14scanResultSink33_D56154314040CDDD71624A65CA7D2689LLyypSgcSgvpfi', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC14scanResultSink33_D56154314040CDDD71624A65CA7D2689LLyypSgcSgvs', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC16messageConnector33_D56154314040CDDD71624A65CA7D2689LLSo26FlutterBasicMessageChannelCSgvM', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC16messageConnector33_D56154314040CDDD71624A65CA7D2689LLSo26FlutterBasicMessageChannelCSgvg', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC16messageConnector33_D56154314040CDDD71624A65CA7D2689LLSo26FlutterBasicMessageChannelCSgvpfi', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC16messageConnector33_D56154314040CDDD71624A65CA7D2689LLSo26FlutterBasicMessageChannelCSgvs', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC21discoveredPeripherals33_D56154314040CDDD71624A65CA7D2689LLSDySSSo12CBPeripheralCGSgvM', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC21discoveredPeripherals33_D56154314040CDDD71624A65CA7D2689LLSDySSSo12CBPeripheralCGSgvg', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC21discoveredPeripherals33_D56154314040CDDD71624A65CA7D2689LLSDySSSo12CBPeripheralCGSgvpfi', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC21discoveredPeripherals33_D56154314040CDDD71624A65CA7D2689LLSDySSSo12CBPeripheralCGSgvs', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC28centralManagerDidUpdateStateyySo09CBCentralI0CF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC6handle_6resultySo17FlutterMethodCallC_yypSgctFTq', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC7manager33_D56154314040CDDD71624A65CA7D2689LLSo16CBCentralManagerCSgvM', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC7manager33_D56154314040CDDD71624A65CA7D2689LLSo16CBCentralManagerCSgvg', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC7manager33_D56154314040CDDD71624A65CA7D2689LLSo16CBCentralManagerCSgvpfi', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC7manager33_D56154314040CDDD71624A65CA7D2689LLSo16CBCentralManagerCSgvs', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC8onCancel13withArgumentsSo12FlutterErrorCSgypSg_tF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC8onListen13withArguments9eventSinkSo12FlutterErrorCSgypSg_yAJctF', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginC8register4withySo07FlutterG9Registrar_p_tFZ', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginCACycfC', '_$s16quick_blue_macos20QuickBlueMacosPluginCACycfc', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginCMa', '_$s16quick_blue_macos20QuickBlueMacosPluginCMn', 
+                       '_$s16quick_blue_macos20QuickBlueMacosPluginCN', '_$s16quick_blue_macos20QuickBlueMacosPluginCfD', 
+                       '_$sSo12CBPeripheralC16quick_blue_macosE13setNotifiable_3for2ofySS_S2StF', 
+                       '_$sSo12CBPeripheralC16quick_blue_macosE17getCharacteristic_2ofSo16CBCharacteristicCSS_SStF', 
+                       '_$sSo12CBPeripheralC16quick_blue_macosE4uuid10Foundation4UUIDVvg', 
+                       '_$sSo12CBPeripheralC16quick_blue_macosE4uuid10Foundation4UUIDVvpMV', 
+                       '_$sSo6CBUUIDC16quick_blue_macosE7uuidStrSSvg', '_$sSo6CBUUIDC16quick_blue_macosE7uuidStrSSvpMV', 
+                       _quick_blue_macosVersionNumber, _quick_blue_macosVersionString ]
+    objc-classes:    [ PodsDummy_quick_blue_macos, _TtC16quick_blue_macos20QuickBlueMacosPlugin ]
+...

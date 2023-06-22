@@ -1,0 +1,48 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.quick_blue" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="21" />
+7-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml
+8
+9    <uses-permission
+9-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:3:3-4:56
+10        android:name="android.permission.BLUETOOTH_SCAN"
+10-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:3:20-68
+11        android:usesPermissionFlags="neverForLocation" />
+11-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:4:7-53
+12    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+12-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:5:3-74
+12-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:5:20-71
+13
+14    <!-- legacy for Android 11 or lower -->
+15    <uses-permission
+15-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:8:3-9:36
+16        android:name="android.permission.BLUETOOTH"
+16-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:8:20-63
+17        android:maxSdkVersion="30" />
+17-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:9:7-33
+18    <uses-permission
+18-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:10:3-11:36
+19        android:name="android.permission.BLUETOOTH_ADMIN"
+19-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:10:20-69
+20        android:maxSdkVersion="30" />
+20-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:11:7-33
+21    <uses-permission
+21-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:12:3-13:36
+22        android:name="android.permission.ACCESS_FINE_LOCATION"
+22-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:12:20-74
+23        android:maxSdkVersion="30" />
+23-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:13:7-33
+24    <!-- legacy for Android 9 or lower -->
+25    <uses-permission
+25-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:15:3-16:36
+26        android:name="android.permission.ACCESS_COARSE_LOCATION"
+26-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:15:20-76
+27        android:maxSdkVersion="28" />
+27-->/Users/sahilsharma/.pub-cache/hosted/pub.dev/quick_blue-0.4.1+1/android/src/main/AndroidManifest.xml:16:7-33
+28
+29</manifest>

@@ -1,1 +1,3 @@
-# quick_blue_example_2.0
+# bluetooth_app
+
+A new Flutter project.

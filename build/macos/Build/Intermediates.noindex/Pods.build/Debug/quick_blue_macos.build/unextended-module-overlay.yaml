@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/build/macos/Build/Products/Debug/quick_blue_macos/quick_blue_macos.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/build/macos/Build/Intermediates.noindex/Pods.build/Debug/quick_blue_macos.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/build/macos/Build/Products/Debug/quick_blue_macos/quick_blue_macos.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "quick_blue_macos-Swift.h",
+      'external-contents': "/Users/sahilsharma/Desktop/dart-flutter/bluetooth_app/build/macos/Build/Intermediates.noindex/Pods.build/Debug/quick_blue_macos.build/unextended-interface-header.h",
+    }]
+    }]
+}

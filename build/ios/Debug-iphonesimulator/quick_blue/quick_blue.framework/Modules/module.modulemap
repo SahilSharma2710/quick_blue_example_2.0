@@ -1,0 +1,11 @@
+framework module quick_blue {
+  umbrella header "quick_blue-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module quick_blue.Swift {
+  header "quick_blue-Swift.h"
+  requires objc
+}
