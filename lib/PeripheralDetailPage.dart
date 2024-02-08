@@ -5,23 +5,13 @@ import 'package:convert/convert.dart';
 import 'package:flutter/material.dart';
 import 'package:quick_blue/quick_blue.dart';
 
-String gssUuid(String code) => '0000$code-0000-1000-8000-00805f9b34fb';
-
-final GSS_SERV__BATTERY = gssUuid('180f');
-final GSS_CHAR__BATTERY_LEVEL = gssUuid('2a19');
-
-const WOODEMI_SUFFIX = 'ba5e-f4ee-5ca1-eb1e5e4b1ce0';
-
-const WOODEMI_SERV__COMMAND = '57444d01-$WOODEMI_SUFFIX';
-const WOODEMI_CHAR__COMMAND_REQUEST = '57444e02-$WOODEMI_SUFFIX';
-const WOODEMI_CHAR__COMMAND_RESPONSE = WOODEMI_CHAR__COMMAND_REQUEST;
-
 const WOODEMI_MTU_WUART = 247;
+String serviceUuid = '';
 
 class PeripheralDetailPage extends StatefulWidget {
   final String deviceId;
 
-  PeripheralDetailPage(this.deviceId);
+  PeripheralDetailPage(this.deviceId, {super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -33,6 +23,7 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
   @override
   void initState() {
     super.initState();
+
     QuickBlue.setConnectionHandler(_handleConnectionChange);
     QuickBlue.setServiceHandler(_handleServiceDiscovery);
     QuickBlue.setValueHandler(_handleValueChange);
@@ -47,32 +38,54 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
   }
 
   void _handleConnectionChange(String deviceId, BlueConnectionState state) {
+    if (state == BlueConnectionState.connected) {
+      _showSnackBar("connected");
+    } else if (state == BlueConnectionState.disconnected) {
+      _showSnackBar("dissconnected");
+    }
     print('_handleConnectionChange $deviceId, $state');
   }
 
   void _handleServiceDiscovery(String deviceId, String serviceId) {
+    serviceUuid = serviceId;
+    setState(() {});
     print('_handleServiceDiscovery $deviceId, $serviceId');
   }
 
   void _handleValueChange(
       String deviceId, String characteristicId, Uint8List value) {
     String stringValue = utf8.decode(value);
-    print('${stringValue}');
+    _showSnackBar(stringValue);
+
     print(
         '_handleValueChange $deviceId, $characteristicId, ${hex.encode(value)}');
   }
 
-  final serviceUUID = TextEditingController(text: WOODEMI_SERV__COMMAND);
-  final characteristicUUID =
-      TextEditingController(text: WOODEMI_CHAR__COMMAND_REQUEST);
-  final binaryCode = TextEditingController(
-      text: hex.encode([0x01, 0x0A, 0x00, 0x00, 0x00, 0x01]));
+  _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+        ),
+        duration: const Duration(seconds: 2),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    );
+  }
+
+  TextEditingController characteristicUUID = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController serviceUUID =
+        TextEditingController(text: serviceUuid);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('PeripheralDetailPage'),
+        title: const Text('PeripheralDetailPage'),
       ),
       body: Column(
         children: [
@@ -80,13 +93,13 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextButton(
-                child: Text('connect'),
+                child: const Text('connect'),
                 onPressed: () {
                   QuickBlue.connect(widget.deviceId);
                 },
               ),
               TextButton(
-                child: Text('disconnect'),
+                child: const Text('disconnect'),
                 onPressed: () {
                   QuickBlue.disconnect(widget.deviceId);
                 },
@@ -97,59 +110,37 @@ class _PeripheralDetailPageState extends State<PeripheralDetailPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextButton(
-                child: Text('discoverServices'),
+                child: const Text('discoverServices'),
                 onPressed: () {
                   QuickBlue.discoverServices(widget.deviceId);
                 },
               ),
             ],
           ),
-          TextButton(
-            child: Text('setNotifiable'),
-            onPressed: () {
-              QuickBlue.setNotifiable(widget.deviceId, WOODEMI_SERV__COMMAND,
-                  WOODEMI_CHAR__COMMAND_RESPONSE, BleInputProperty.indication);
-            },
-          ),
           TextField(
             controller: serviceUUID,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'ServiceUUID',
             ),
           ),
           TextField(
             controller: characteristicUUID,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'CharacteristicUUID',
             ),
           ),
-          TextField(
-            controller: binaryCode,
-            decoration: InputDecoration(
-              labelText: 'Binary code',
-            ),
-          ),
           TextButton(
-            child: Text('send'),
+            child: const Text('send request'),
             onPressed: () {
-              var value = Uint8List.fromList(hex.decode(binaryCode.text));
-              QuickBlue.writeValue(
-                  widget.deviceId,
-                  serviceUUID.text,
-                  characteristicUUID.text,
-                  value,
-                  BleOutputProperty.withResponse);
+              QuickBlue.readValue(
+                widget.deviceId,
+                serviceUUID.text,
+                characteristicUUID.text,
+              );
             },
           ),
           TextButton(
-            child: Text('readValue battery'),
-            onPressed: () async {
-              await QuickBlue.readValue(
-                  widget.deviceId, GSS_SERV__BATTERY, GSS_CHAR__BATTERY_LEVEL);
-            },
-          ),
-          TextButton(
-            child: Text('requestMtu'),
+            child: const Text('requestMtu'),
             onPressed: () async {
               var mtu = await QuickBlue.requestMtu(
                   widget.deviceId, WOODEMI_MTU_WUART);

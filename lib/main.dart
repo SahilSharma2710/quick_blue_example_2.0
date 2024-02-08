@@ -4,22 +4,36 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:quick_blue/quick_blue.dart';
 
 import 'PeripheralDetailPage.dart';
 
 void main() {
-  runApp(MyApp());
+  if (Platform.isAndroid) {
+    WidgetsFlutterBinding.ensureInitialized();
+    [
+      Permission.location,
+      Permission.bluetooth,
+      Permission.bluetoothConnect,
+      Permission.bluetoothScan
+    ].request().then((status) {
+      runApp(const MyApp());
+    });
+  } else {
+    runApp(const MyApp());
+  }
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   StreamSubscription<BlueScanResult>? _subscription;
-
   @override
   void initState() {
     super.initState();
@@ -27,7 +41,8 @@ class _MyAppState extends State<MyApp> {
       QuickBlue.setLogger(Logger('quick_blue_example'));
     }
     _subscription = QuickBlue.scanResultStream.listen((result) {
-      if (!_scanResults.any((r) => r.deviceId == result.deviceId)) {
+      if ((!_scanResults.any((r) => r.deviceId == result.deviceId)) &&
+          result.name != "") {
         setState(() => _scanResults.add(result));
       }
     });
@@ -56,7 +71,7 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             _buildButtons(),
-            Divider(
+            const Divider(
               color: Colors.blue,
             ),
             _buildListView(),
@@ -72,13 +87,13 @@ class _MyAppState extends State<MyApp> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         TextButton(
-          child: Text('startScan'),
+          child: const Text('startScan'),
           onPressed: () {
             QuickBlue.startScan();
           },
         ),
         TextButton(
-          child: Text('stopScan'),
+          child: const Text('stopScan'),
           onPressed: () {
             QuickBlue.stopScan();
           },
@@ -105,7 +120,7 @@ class _MyAppState extends State<MyApp> {
                 ));
           },
         ),
-        separatorBuilder: (context, index) => Divider(),
+        separatorBuilder: (context, index) => const Divider(),
         itemCount: _scanResults.length,
       ),
     );
@@ -114,8 +129,8 @@ class _MyAppState extends State<MyApp> {
   Widget _buildPermissionWarning() {
     if (Platform.isAndroid) {
       return Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        child: Text('BLUETOOTH_SCAN/ACCESS_FINE_LOCATION needed'),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        child: const Text('BLUETOOTH_SCAN/ACCESS_FINE_LOCATION needed'),
       );
     }
     return Container();
